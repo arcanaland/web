@@ -1,0 +1,5 @@
+# Serve .well-known files
+/.well-known/*   /well-known/:splat   200
+
+# Redirect root to GitHub org
+/   https://github.com/arcanaland   302
