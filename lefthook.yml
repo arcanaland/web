@@ -1,0 +1,17 @@
+# Every check this repo runs. Each script takes files and exits 1 on a hit.
+pre-commit:
+  jobs:
+    - name: slop-guard
+      run: scripts/slop-guard {staged_files}
+
+# Not a git hook. A site may not publish while it holds slop or an unfilled slot.
+# Run by `just check` (every site) and by each site's Netlify build (`--job <site>`).
+# {all_files} is tracked files only.
+publishable:
+  jobs:
+    - name: apex
+      glob: "apex/**"
+      run: scripts/slop-guard {all_files} && scripts/no-clankertext {all_files}
+    - name: docs
+      glob: "docs/**"
+      run: scripts/slop-guard {all_files} && scripts/no-clankertext {all_files}

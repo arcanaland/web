@@ -1,0 +1,14 @@
+[project]
+site_name = "Tarot Canvas documentation"
+site_description = "Documentation for Tarot Canvas and Arcana Land"
+site_url = "https://docs.arcana.land/"
+docs_dir = "content"
+nav = [
+  { "User Manual" = "user-manual/index.md" },
+  { "FAQs" = "faqs/index.md" },
+  { "General Concepts" = "general-concepts/index.md" },
+]
+
+[project.theme]
+logo = "assets/logo.svg"
+favicon = "assets/favicon.png"
