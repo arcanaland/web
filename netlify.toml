@@ -2,8 +2,6 @@
 [build]
   publish = "apex"
   command = "lefthook run publishable --job apex --no-auto-install --no-tty"
-  # Exit 0 skips the build. Always build on a first deploy or cleared cache,
-  # when the two refs are equal and the diff would be empty.
   ignore = 'test "$CACHED_COMMIT_REF" != "$COMMIT_REF" && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- apex netlify.toml requirements.txt lefthook.yml scripts'
 
 [build.environment]
