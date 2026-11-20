@@ -1,0 +1,13 @@
+pre-commit:
+  jobs:
+    - name: slop-guard
+      run: scripts/slop-guard {staged_files}
+
+publishable:
+  jobs:
+    - name: apex
+      glob: "apex/**"
+      run: scripts/slop-guard {all_files} && scripts/no-clankertext {all_files}
+    - name: docs
+      glob: "docs/**"
+      run: scripts/slop-guard {all_files} && scripts/no-clankertext {all_files}

@@ -1,0 +1,7 @@
+[build]
+  publish = "site"
+  command = "lefthook run publishable --job docs --no-auto-install --no-tty && zensical build"
+  ignore = 'test "$CACHED_COMMIT_REF" != "$COMMIT_REF" && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ../lefthook.yml ../scripts'
+
+[build.environment]
+  PYTHON_VERSION = "3.13"

@@ -1,0 +1,11 @@
+#!/bin/sh
+set -u
+[ "$#" -eq 0 ] && exit 0
+if grep -HInE '(^|[^[:alnum:]_])(RFC|ADR|TASK)-[0-9]+' -- "$@"; then
+  echo "slop detected" >&2
+  exit 1
+fi
+status=$?
+# grep exits 1 for "no match"
+[ "$status" -eq 1 ] && exit 0
+exit "$status"
