@@ -6,9 +6,17 @@
 src = "h1200/major_arcana/08.jpg"
 crop = "275x275+18+155"
 
+[rider-waite-smith."major_arcana.16"]
+src = "h1200/major_arcana/16.jpg"
+crop = "498x498+85+0"
+
 [rider-waite-smith."minor_arcana.cups.eight"]
 src = "h1200/minor_arcana/cups/eight.jpg"
 crop = "200x200+53+166"
+
+[rider-waite-smith."minor_arcana.swords.three"]
+src = "h1200/minor_arcana/swords/three.jpg"
+crop = "538x538+70+323"
 
 [rider-waite-smith."card_backs.classic"]
 src = "card_backs/classic.jpg"
