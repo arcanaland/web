@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""Regenerate docs/content/assets/cards"""
+
+import os
+import re
+import subprocess
+import sys
+import tomllib
+from pathlib import Path
+
+SIZE = 64
+QUALITY = 85
+FULL_HEIGHT = 360
+FULL_QUALITY = 80
+
+root = Path(__file__).resolve().parent.parent
+manifest = root / "docs" / "card-icons.toml"
+out_dir = root / "docs" / "content" / "assets" / "cards"
+decks = Path(os.environ.get("REFERENCE_DECKS", root.parent / "reference-decks"))
+
+geometry = re.compile(r"^(\d+)x(\d+)\+(\d+)\+(\d+)$")
+
+
+def fail(msg: str) -> None:
+    print(f"card-icons: {msg}", file=sys.stderr)
+    sys.exit(1)
+
+
+with manifest.open("rb") as f:
+    entries = tomllib.load(f)
+
+wanted: set[Path] = set()
+for deck, icons in entries.items():
+    for key, spec in icons.items():
+        where = f"{deck}.{key}"
+        src = decks / deck / spec["src"]
+        crop = spec["crop"]
+        m = geometry.match(crop)
+        if not m:
+            fail(f"{where}: crop {crop!r} is not WxH+X+Y")
+        if m[1] != m[2]:
+            fail(f"{where}: crop {crop!r} is not square")
+        if not src.is_file():
+            fail(f"{where}: no source at {src}")
+
+        dst = out_dir / deck / f"{key}.webp"
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        subprocess.run(
+            ["magick", str(src),
+             "-crop", crop, "+repage",
+             "-resize", f"{SIZE}x{SIZE}",
+             "-strip", "-quality", str(QUALITY),
+             str(dst)],
+            check=True,
+        )
+        full = out_dir / deck / f"{key}.full.webp"
+        subprocess.run(
+            ["magick", str(src),
+             "-resize", f"x{FULL_HEIGHT}",
+             "-strip", "-quality", str(FULL_QUALITY),
+             str(full)],
+            check=True,
+        )
+        wanted.update((dst, full))
+        print(dst.relative_to(root))
+        print(full.relative_to(root))
+
+for stale in out_dir.rglob("*.webp"):
+    if stale not in wanted:
+        stale.unlink()
+        print(f"removed {stale.relative_to(root)}")

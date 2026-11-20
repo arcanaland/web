@@ -3,6 +3,8 @@ site_name = "Arcana Land"
 site_description = "Documentation for Tarot Canvas and Arcana Land"
 site_url = "https://docs.arcana.land/"
 docs_dir = "content"
+extra_css = ["stylesheets/extra.css"]
+extra_javascript = ["javascripts/card-peek.js"]
 nav = [
   { "Tarot Canvas" = [
     "tarot-canvas/index.md",

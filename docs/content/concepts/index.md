@@ -1,14 +1,14 @@
-This section covers general concepts and the overall philosophy of the Arcana Land project. It assumes that the reader has some passing familiarity with tarot such as the 78-card Rider-Waite-Smith tradition, the concept of a spread and the basics of tarot cards and readings.
+This section covers general concepts and the overall philosophy of the Arcana Land project. It assumes that the reader has some passing familiarity with tarot such as the 78-card <span class="card">![](../assets/cards/rider-waite-smith/card_backs.classic.webp){ .card-icon } Rider-Waite-Smith</span> tradition and the basics of tarot cards.
 
 ## Tarot Objects
 
-The fundamental object of the Arcana Land project is the tarot card which can be uniquely identified through a [canonical identifier](https://github.com/arcanaland/specifications/blob/deck/v2.0-rc.1/DECK.md#31-canonical-ids). These identifiers look something like:
+The fundamental object for Arcana Land is the tarot card which can be uniquely identified through a [canonical identifier](https://github.com/arcanaland/specifications/blob/deck/v2.0-rc.1/DECK.md#31-canonical-ids). These identifiers look something like:
 
-- `major_arcana.08`, which identifies the eigth major arcana card (Strength in the Rider-Waite-Smith tradition).
-- `minor_arcana.cups.queen`, which identifies the Queen of Cups (or the second-to-last rank of the equivalent suit in a non-Rider-Waite-Smith deck).
+- `major_arcana.08`, which identifies the eigth major arcana card (<span class="card">![](../assets/cards/rider-waite-smith/major_arcana.08.webp){ .card-icon } Strength</span> in the Rider-Waite-Smith tradition).
+- `minor_arcana.cups.eight`, which identifies the <span class="card">![](../assets/cards/rider-waite-smith/minor_arcana.cups.eight.webp){ .card-icon } Eight of Cups</span> (or the eighth rank of the equivalent suit in a non-Rider-Waite-Smith deck).
 - `major_arcana.happy_squirrel`, which identifies a custom card outside of the typical 22 major arcana.
 
-Under this system, a card is a "slot" in a linear sequence of 78 canonical identifiers. What a particular slot means is defined by a [tarot pattern](https://github.com/arcanaland/specifications/blob/deck/v2.0-rc.1/DECK.md#4121-pattern) such as Rider-Waite-Smith or Marseille. For example `major_arcana.08` refers to Strength for Rider-Waite-Smith and La Justice for Marseille.
+Under this system, a card is a "slot" in a linear sequence of 78 canonical identifiers. What a particular slot means is defined by a [tarot pattern](https://github.com/arcanaland/specifications/blob/deck/v2.0-rc.1/DECK.md#4121-pattern) such as <span class="card">![](../assets/cards/rider-waite-smith/card_backs.classic.webp){ .card-icon } Rider-Waite-Smith</span> or <span class="card">![](../assets/cards/marseille/card_backs.default.webp){ .card-icon } Marseille</span>. For example `major_arcana.08` refers to <span class="card">![](../assets/cards/rider-waite-smith/major_arcana.08.webp){ .card-icon } Strength</span> for Rider-Waite-Smith and <span class="card">![](../assets/cards/marseille/major_arcana.08.webp){ .card-icon } La Justice</span> for Marseille.
 
 !!! note
     The formal grammar for the identifiers is defined in our [Tarot Deck Specification](https://github.com/arcanaland/specifications/blob/deck/v2.0-rc.1/DECK.md#35-grammar). The full set of identifiers for the 78-card deck are as follows:
