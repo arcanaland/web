@@ -9,3 +9,7 @@ check:
 [working-directory: 'docs']
 docs *args:
     uv run --with-requirements requirements.txt zensical {{args}}
+
+# Regenerate docs card icons from docs/card-icons.toml
+card-icons:
+    scripts/card-icons

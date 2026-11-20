@@ -1,0 +1,23 @@
+# Inline card icons for the docs.
+
+# crop = WxH+X+Y
+
+[rider-waite-smith."major_arcana.08"]
+src = "h1200/major_arcana/08.jpg"
+crop = "275x275+18+155"
+
+[rider-waite-smith."minor_arcana.cups.eight"]
+src = "h1200/minor_arcana/cups/eight.jpg"
+crop = "200x200+53+166"
+
+[rider-waite-smith."card_backs.classic"]
+src = "card_backs/classic.jpg"
+crop = "94x94+109+216"
+
+[marseille."major_arcana.08"]
+src = "h1200/major_arcana/08.webp"
+crop = "324x324+152+78"
+
+[marseille."card_backs.default"]
+src = "h1200/card_backs/default.webp"
+crop = "72x72+268+564"

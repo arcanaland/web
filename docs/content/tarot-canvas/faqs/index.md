@@ -1,14 +1,14 @@
 # Frequently Asked Questions
 
-## 1. Where Can I Get Other Tarot Decks?
+## Where can I get other tarot decks?
 
-Arcana Land provides a small number of free tarot decks (as of 2026, four) in our [Reference Deck Collection](https://github.com/arcanaland/reference-decks/releases). They are all available for download directly in the Tarot Canvas app.
+We provide a small number of free tarot decks (as of 2026, four) in our [Reference Deck Collection](https://github.com/arcanaland/reference-decks/releases). They are all available for download directly in the Tarot Canvas app.
 
 Because there are only a handful of tarot decks in existence that are verifiably free from copyright claim, we are only able to provide a small sample of decks that are permissively licensed. For other decks, you can create your own by following the next section.
 
-## 2. How Do I Make My Own Deck?
+## How do I make my own deck?
 
-Creating a Tarot deck consists of putting your card images into a certain folder structure with a TOML file at the top.
+Creating a tarot deck consists of putting your card images into a certain folder structure with a TOML file at the top.
 
 This section will walk-through creating a tarot deck step-by-step using KDE Plasma.
 
@@ -29,19 +29,7 @@ identifier = "com.example/deck/my-tarot-deck"
 
 For this example, I will be using images from Kathryn Isabelle Lawrence's [ascii-tarot](https://github.com/lawreka/ascii-tarot).
 
-Place major arcana images in a folder called `major_arcana` and name them as a two-digit number. For example, The Fool:
-
-<img height="500" alt="00" src="00.webp" />
-
-Place it in `major_arcana/00.webp`.
-
-<img width="1958" height="1382" alt="deck2" src="deck2.webp" />
-
-Another example of The World:
-
-<img height="500" alt="21" src="21.webp" />
-
-Place it in `major_arcana/21.webp`.
+Place major arcana images in a folder called `major_arcana` and name them as a two-digit number. Using The Fool, as an example place it in `major_arcana/00.webp`.
 
 <img width="1958" height="1382" alt="deck3" src="deck3.webp" />
 
@@ -63,38 +51,29 @@ You should now be able use the canvas view with "My Custom Tarot" selected in th
     I personally scan my decks using an app that I am developing called [deckle](https://github.com/arcanaland/deckle). It is a command-line tool that handles the scanning, physical jig creation, image cropping, deskeweing and cataloging. It is pre-alpha, but if you are technical and adventurous, it may be of interest.
 
 
-## 3. How Do I Add My Own Esoterica?
+## How do I add my own keywords for cards?
 
-You can add your own esoterica by manually adding a file with the following format:
+You can add your own esoterica by manually creating a file with the following format:
 
 ```toml
 [meta]
-name = "My Custom Esoterica"
-author = "Jane Doe"
-identifier = "com.example/esoterica/my-custom-esoterica"
+name = "My Custom Keywords"
+identifier = "land.arcana.private/esoterica/my-keywords"
+schema_version = "1.0"
+version = "1.0"
 
+# keywords for The Fool
 [card."major_arcana.00".passages]
-text = "These are my permanent notes for The Fool."
+keywords = ["tomfoolery", "this chicanery‽"]
 
-# ... the rest of the Major Arcana ...
-
-[card."major_arcana.21".passages]
-text = "These are my permanent notes for The World."
-
-# ... now the Minor Arcana ...
-
-[card."minor_arcana.wands.ace".passages]
-text = "These are my permanent notes for the Ace of Wands."
-
-# ...
-
-[card."minor_arcana.cups.ten".passages]
-text = "These are my permanent notes for the Ten of Cups."
+# keywords for the Eight of Wands
+[card."minor_arcana.wands.eight".passages]
+keywords = ["fast movement", "rain of arrows"]
 ```
 
 Save it as a `.toml` file in the folder at `~/.var/app/land.arcana.TarotCanvas/data/tarot/esoterica/`.
 
-<img width="2150" height="1516" alt="Screenshot_20261008_174224-1" src="Screenshot_20261008_174224-1.png" />
+<img width="2150" height="1516" alt="Screenshot_20261008_174224-1" src="./custom-keywords.webp" />
 
 
 !!! note

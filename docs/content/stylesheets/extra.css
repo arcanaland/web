@@ -1,0 +1,49 @@
+/* Card mention: <span class="card">![](…/x.webp){ .card-icon } Name</span>.
+   card-peek.js adds img.card-peek, the whole card, shown on hover/focus,
+   and wraps the name in span.card-name. */
+.md-typeset .card {
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Dotted underline under the name, added by card-peek.js. */
+.md-typeset .card-name {
+  padding-bottom: 0.12em;
+  background: linear-gradient(to right,
+      color-mix(in srgb, currentColor 55%, transparent) 50%, transparent 50%)
+    0 100% / 4px 1px repeat-x;
+}
+
+.md-typeset .card:focus-visible {
+  outline: 0.1em solid var(--md-accent-fg-color);
+  outline-offset: 0.1em;
+  border-radius: 0.2em;
+}
+
+.md-typeset img.card-icon {
+  height: 1.2em;
+  width: 1.2em;
+  object-fit: cover;
+  vertical-align: -0.2em;
+  border-radius: 0.2em;
+}
+
+.md-typeset img.card-peek {
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.5em);
+  transform: translateX(-50%);
+  height: 11em;
+  width: auto;
+  max-width: none;
+  border-radius: 0.45em;
+  box-shadow: var(--md-shadow-z3);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.md-typeset .card:hover img.card-peek,
+.md-typeset .card:focus-visible img.card-peek {
+  display: block;
+}
