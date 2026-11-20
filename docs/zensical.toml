@@ -1,14 +1,26 @@
 [project]
-site_name = "Tarot Canvas documentation"
+site_name = "Arcana Land"
 site_description = "Documentation for Tarot Canvas and Arcana Land"
 site_url = "https://docs.arcana.land/"
 docs_dir = "content"
 nav = [
-  { "User Manual" = "user-manual/index.md" },
-  { "FAQs" = "faqs/index.md" },
-  { "General Concepts" = "general-concepts/index.md" },
+  { "Tarot Canvas" = [
+    "tarot-canvas/index.md",
+    { "FAQs" = "tarot-canvas/faqs/index.md" },
+  ] },
+  { "General Concepts" = "concepts/index.md" },
 ]
 
 [project.theme]
 logo = "assets/logo.svg"
 favicon = "assets/favicon.png"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "switch to light mode"
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "switch to dark mode"

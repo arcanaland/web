@@ -1,10 +1,6 @@
-# The docs site (docs.arcana.land). Its Netlify base directory is `docs`,
-# set in the UI; paths here are relative to it.
 [build]
   publish = "site"
   command = "lefthook run publishable --job docs --no-auto-install --no-tty && zensical build"
-  # Exit 0 skips the build. Always build on a first deploy or cleared cache,
-  # when the two refs are equal and the diff would be empty.
   ignore = 'test "$CACHED_COMMIT_REF" != "$COMMIT_REF" && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ../lefthook.yml ../scripts'
 
 [build.environment]
