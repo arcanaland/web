@@ -1,4 +1,4 @@
-This section covers general concepts and the overall philosophy of the Arcana Land project. It assumes that the reader has some familiarity with tarot such as the 78-card <span class="card">![](../assets/cards/rider-waite-smith/card_backs.classic.webp){ .card-icon } Rider-Waite-Smith</span> tradition and the basics of tarot cards.
+This section covers general technical concepts and the overall philosophy of the Arcana Land project. It assumes that the reader is familiar with beginner tarot concepts such as the 78-card <span class="card">![](../assets/cards/rider-waite-smith/card_backs.classic.webp){ .card-icon } Rider-Waite-Smith</span> tradition and the basics of tarot cards.
 
 ## Tarot Objects
 
@@ -97,7 +97,7 @@ Under this system, a card is a "slot" in a linear sequence of 78 canonical ident
 
 ## Tarot Decks
 
-A tarot deck is a directory of card images and a `deck.toml` file with metadata. For example, consider the 2-card tarot deck that contains just <span class="card">![](../assets/cards/rider-waite-smith/major_arcana.16.webp){ .card-icon } The Tower</span> and the <span class="card">![](../assets/cards/rider-waite-smith/minor_arcana.swords.three.webp){ .card-icon } Three of Swords</span> (how fun!) with images that are 1200px tall.
+A tarot deck is a directory of card images and a `deck.toml` file with metadata. For example, consider a 2-card tarot deck that contains just <span class="card">![](../assets/cards/rider-waite-smith/major_arcana.16.webp){ .card-icon } The Tower</span> and the <span class="card">![](../assets/cards/rider-waite-smith/minor_arcana.swords.three.webp){ .card-icon } Three of Swords</span> (how fun!) with images that are 1200px tall.
 
 ```console
 └── my-deck

@@ -8,52 +8,30 @@ Because there are only a handful of tarot decks in existence that are verifiably
 
 ## How do I make my own deck?
 
-Creating a tarot deck consists of putting your card images into a certain folder structure with a TOML file at the top.
+Starting with version 1.10, you can create decks directly in the app by providing your own image files.
 
-This section will walk-through creating a tarot deck step-by-step using KDE Plasma.
+Select `File > New Deck...` from the menu bar and enter the name of your deck. For this example, I'll be creating a deck named "Pixel Tarot" using assets from the artist [Riclmbr](https://riclmbr.itch.io) on Itch.io.
 
-Open Dolphin and navigate to `~/.var/app/land.arcana.TarotCanvas/data/tarot/decks`. Create a directory called `my-tarot-deck` (or name it whatever).
+<img width="2200" src="./new-deck-empty.webp" />
 
-Then create a new TOML file called `deck.toml` and fill it out:
+Once created, you can either manually add images by clicking cells for individual cards, or you can bulk add images, which places them in the unassigned tray at the bottom of the deck.
 
-```toml
-[deck]
-schema_version = "2.0"
-name = "My Tarot Deck"
-author = "Jane Doe"
-version = "1.0"
-identifier = "com.example/deck/my-tarot-deck"
-```
+<img width="2200" src="./new-deck-unassigned.webp" />
 
-<img width="1958" height="1382" alt="deck1" src="deck1.webp" />
+Based on filenames, we will automatically try to guess the appropriate card. For example, the file `Tarot_Strength.png` is associated with the <span class="card">![](../../assets/cards/rider-waite-smith/major_arcana.08.webp){ .card-icon } Strength</span> card and double-clicking it confirms the assignment.
 
-For this example, I will be using images from Kathryn Isabelle Lawrence's [ascii-tarot](https://github.com/lawreka/ascii-tarot).
+For images whose cards could not be automatically inferred, you can right click on them to manually assign them.
 
-Place major arcana images in a folder called `major_arcana` and name them as a two-digit number. Using The Fool, as an example place it in `major_arcana/00.webp`.
+<img width="2200" src="./new-deck.webp" />
 
-<img width="1958" height="1382" alt="deck3" src="deck3.webp" />
-
-For the minor arcana, create a folder named `minor_arcana` with subfolders `wands`, `cups`, `swords`, and `pentacles`. For example:
-
-<img width="2114" height="1622" alt="deck4" src="deck4.webp" />
-
-Follow the example of `minor_arcana/cups/ace.webp` and `minor_arcana/swords/three.webp` for the rest of the cards.
-
-<img width="2126" height="1572" alt="canvas" src="canvas.webp" />
-
-You should now be able use the canvas view with "My Custom Tarot" selected in the Card Explorer's dropdown. Summoning random cards will then draw from your personal deck.
-
-
-!!! tip
-    Refer to the full [Tarot Deck Specification](https://github.com/arcanaland/specifications/blob/main/DECK.md) ([PDF](https://github.com/arcanaland/specifications/releases/download/deck%2Fv2.0-rc.1/deck-v2.0-rc.1.pdf)) for more details about the file and directory format.
+Once you've finished assigning all of your images, you can finalize your deck and begin using it in your own readings. You can even export the deck into a zip file that can be shared with friends (but please make sure you have permission if using other people's art!).
 
 !!! note
-    I personally scan my decks using an app that I am developing called [deckle](https://github.com/arcanaland/deckle). It is a command-line tool that handles the scanning, physical jig creation, image cropping, deskeweing and cataloging. It is pre-alpha, but if you are technical and adventurous, it may be of interest.
-
+    For details about the underlying file format and how to fully customize your own tarot decks, please refer to the complete [Tarot Deck Specification](https://github.com/arcanaland/specifications/blob/main/DECK.md) ([PDF](https://github.com/arcanaland/specifications/releases/download/deck%2Fv2.0-rc.1/deck-v2.0-rc.1.pdf)).
 
 ## How do I add my own keywords for cards?
 
-You can add your own esoterica by manually creating a file with the following format:
+You can add your own esoterica by manually creating a TOML file with the following format:
 
 ```toml
 [meta]
@@ -71,10 +49,17 @@ keywords = ["tomfoolery", "this chicanery‽"]
 keywords = ["fast movement", "rain of arrows"]
 ```
 
-Save it as a `.toml` file in the folder at `~/.var/app/land.arcana.TarotCanvas/data/tarot/esoterica/`.
-
-<img width="2150" height="1516" alt="Screenshot_20261008_174224-1" src="./custom-keywords.webp" />
-
-
 !!! note
-    See the official [Esoterica Specification](https://github.com/arcanaland/specifications/blob/deck-v2/ESOTERICA.md) for the supported fields.
+    The `major_arcana.00` syntax (called a *canonical identifier*) is defined in the [Technical Concepts](../../concepts) section and a full list of valid identifiers is provided.  
+
+
+Save your `.toml` file in the directory `~/.var/app/land.arcana.TarotCanvas/data/tarot/esoterica/`.
+
+
+
+
+<img width="2200" src="./custom-keywords.webp" />
+
+
+!!! tip
+    See the official [Esoterica Specification](https://github.com/arcanaland/specifications/blob/deck-v2/ESOTERICA.md) for the full list of supported fields for esoterica packs.
