@@ -8,9 +8,9 @@ Because there are only a handful of tarot decks in existence that are verifiably
 
 ## How do I make my own deck?
 
-Starting with version 1.10, you can create decks directly in the app by providing your own image files.
+You can create decks directly in the app by selecting `File > New Deck...` from the menu bar and entering the name of your own deck.
 
-Select `File > New Deck...` from the menu bar and enter the name of your deck. For this example, I'll be creating a deck named "Pixel Tarot" using assets from the artist [Riclmbr](https://riclmbr.itch.io) on Itch.io.
+For this example, I'll be creating a deck named "Pixel Tarot" using assets from the artist [Riclmbr](https://riclmbr.itch.io) on Itch.io.
 
 <img width="2200" src="./new-deck-empty.webp" />
 
@@ -18,16 +18,16 @@ Once created, you can either manually add images by clicking cells for individua
 
 <img width="2200" src="./new-deck-unassigned.webp" />
 
-Based on filenames, we will automatically try to guess the appropriate card. For example, the file `Tarot_Strength.png` is associated with the <span class="card">![](../../assets/cards/rider-waite-smith/major_arcana.08.webp){ .card-icon } Strength</span> card and double-clicking it confirms the assignment.
+Based on filenames, the app will automatically try to guess the appropriate card. For example, the file `Tarot_Strength.png` is associated with the <span class="card">![](../../assets/cards/rider-waite-smith/major_arcana.08.webp){ .card-icon } Strength</span> card and double-clicking on it (or pressing Enter) confirms the assignment.
 
 For images whose cards could not be automatically inferred, you can right click on them to manually assign them.
 
 <img width="2200" src="./new-deck.webp" />
 
-Once you've finished assigning all of your images, you can finalize your deck and begin using it in your own readings. You can even export the deck into a zip file that can be shared with friends (but please make sure you have permission if using other people's art!).
+Once you've finished assigning all of your images, you can finalize your deck and begin using it in your own readings. You can even export the deck to a `.tarotdeck` file that can be shared with your friends (but please make sure you have permission if using other people's art!).
 
-!!! note
-    For details about the underlying file format and how to fully customize your own tarot decks, please refer to the complete [Tarot Deck Specification](https://github.com/arcanaland/specifications/blob/main/DECK.md) ([PDF](https://github.com/arcanaland/specifications/releases/download/deck%2Fv2.0-rc.1/deck-v2.0-rc.1.pdf)).
+!!! tip 
+    To fully customize your own tarot decks (e.g., renaming suits, adding extra cards, etc), refer to the complete [Tarot Deck Specification](https://github.com/arcanaland/specifications/blob/main/DECK.md) ([PDF](https://github.com/arcanaland/specifications/releases/download/deck%2Fv2.0-rc.1/deck-v2.0-rc.1.pdf)).
 
 ## How do I add my own keywords for cards?
 
@@ -50,7 +50,7 @@ keywords = ["fast movement", "rain of arrows"]
 ```
 
 !!! note
-    The `major_arcana.00` syntax (called a *canonical identifier*) is defined in the [Technical Concepts](../../concepts) section and a full list of valid identifiers is provided.  
+    The `major_arcana.00` syntax (called a *canonical identifier*) is defined in the [Technical Concepts](../../concepts) section where a full list of valid identifiers is provided.  
 
 
 Save your `.toml` file in the directory `~/.var/app/land.arcana.TarotCanvas/data/tarot/esoterica/`.
@@ -61,5 +61,5 @@ Save your `.toml` file in the directory `~/.var/app/land.arcana.TarotCanvas/data
 <img width="2200" src="./custom-keywords.webp" />
 
 
-!!! tip
+!!! info 
     See the official [Esoterica Specification](https://github.com/arcanaland/specifications/blob/deck-v2/ESOTERICA.md) for the full list of supported fields for esoterica packs.
