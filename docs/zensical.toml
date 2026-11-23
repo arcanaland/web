@@ -10,7 +10,7 @@ nav = [
     "tarot-canvas/index.md",
     { "FAQs" = "tarot-canvas/faqs/index.md" },
   ] },
-  { "General Concepts" = "concepts/index.md" },
+  { "Technical Concepts" = "concepts/index.md" },
 ]
 
 [project.theme]
